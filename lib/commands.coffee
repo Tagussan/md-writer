@@ -172,10 +172,10 @@ class Commands
   correctOrderListNumbers: ->
     editor = atom.workspace.getActiveTextEditor()
 
-    lines = @_getSelectedLines(editor)
-    lines = @_correctOrderNumbers(lines)
+    #lines = @_getSelectedLines(editor)
+    #lines = @_correctOrderNumbers(lines)
 
-    editor.insertText(lines.join("\n"))
+    #editor.insertText(lines.join("\n"))
 
   _correctOrderNumbers: (lines) ->
     correctedLines = []
