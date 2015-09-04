@@ -44,7 +44,7 @@ class Configuration
       """
 
     # file extension of posts/drafts
-    fileExtension: ".markdown"
+    fileExtension: ".wiki"
 
     # whether rename filename based on title in front matter when publishing
     publishRenameBasedOnTitle: false

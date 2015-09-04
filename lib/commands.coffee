@@ -4,9 +4,11 @@ utils = require "./utils"
 HEADING_REGEX   = /// ^\# {1,6} \ + .+$ ///g
 REFERENCE_REGEX = /// \[? ([^\s\]]+) (?:\] | \]:)? ///
 
-LIST_TL_REGEX   = /// ^ (\s*) (-\ \[[xX\ ]\]) \s+ (.*) $ ///
-LIST_UL_REGEX   = /// ^ (\s*) ([*+-]) \s+ (.*) $ ///
-LIST_OL_REGEX   = /// ^ (\s*) (\d+)\. \s+ (.*) $ ///
+LIST_UL_REGEX   = /// ^ (\s*) ([*]+) \s* (.*) $ ///
+LIST_OL_REGEX   = /// ^ (\s*) ([#]+)\. \s+ (.*) $ ///
+LIST_MIX_REGEX   = /// ^ (\s*) ([#*]+)\. \s+ (.*) $ ///
+
+INDENT_TEXT_REGEX = /// ^ (\s*) ([:]+)\. \s+ (.*) $ ///
 
 TABLE_COL_REGEX = ///  ([^\|]*?) \s* \| ///
 TABLE_VAL_REGEX = /// (?:^|\|) ([^\|]+) ///g
@@ -51,12 +53,14 @@ class Commands
     editor.insertText("#{nextLine}")
 
   _findLineValue: (line) ->
-    if matches = LIST_TL_REGEX.exec(line)
-      nextLine = "#{matches[1]}- [ ] "
-    else if matches = LIST_UL_REGEX.exec(line)
+    if matches = LIST_UL_REGEX.exec(line)
       nextLine = "#{matches[1]}#{matches[2]} "
     else if matches = LIST_OL_REGEX.exec(line)
-      nextLine = "#{matches[1]}#{parseInt(matches[2], 10) + 1}. "
+      nextLine = "#{matches[1]}#{matches[2]} "
+    else if matches = LIST_MIX_REGEX.exec(line)
+      nextLine = "#{matches[1]}#{matches[2]} "
+    else if matches = INDENT_TEXT_REGEX.exec(line)
+      nextLine = "#{matches[1]}#{matches[2]} "
     else
       nextLine = ""
 
@@ -86,7 +90,7 @@ class Commands
         selection.indentSelectedRows()
 
   _isListLine: (line) ->
-    [LIST_TL_REGEX, LIST_UL_REGEX, LIST_OL_REGEX].some (rgx) -> rgx.exec(line)
+    [LIST_UL_REGEX, LIST_OL_REGEX, LIST_MIX_REGEX, INDENT_TEXT_REGEX].some (rgx) -> rgx.exec(line)
 
   _isAtLineBeginning: (line, col) ->
     col == 0 || line.substring(0, col).trim() == ""
