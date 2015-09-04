@@ -1,8 +1,8 @@
 {
-  "name": "markdown-writer",
+  "name": "mediawiki-writer",
   "main": "./lib/main",
   "version": "1.9.3",
-  "description": "Make Atom a better Markdown editor and an easier static blogging tool.",
+  "description": "Make Atom a better Mediawiki Markdown editor and an easier static blogging tool. Forked from zhuochun's md-writer",
   "keywords": [
     "Markdown",
     "Jekyll",
@@ -11,9 +11,9 @@
     "Writing",
     "Blogging"
   ],
-  "author": "Wang Zhuochun <zhuochun@hotmail.com> (http://www.bicrement.com/)",
-  "repository": "https://github.com/zhuochun/md-writer",
-  "bugs": "https://github.com/zhuochun/md-writer/issues",
+  "author": "Tagussan",
+  "repository": "https://github.com/Tagussan/md-writer",
+  "bugs": "https://github.com/Tagussan/md-writer/issues",
   "license": "MIT",
   "keymaps": [
     "keymap.cson"
