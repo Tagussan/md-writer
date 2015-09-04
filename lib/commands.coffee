@@ -5,8 +5,8 @@ HEADING_REGEX   = /// ^\# {1,6} \ + .+$ ///g
 REFERENCE_REGEX = /// \[? ([^\s\]]+) (?:\] | \]:)? ///
 
 LIST_UL_REGEX   = /// ^ (\s*) ([*]+) \s* (.*) $ ///
-LIST_OL_REGEX   = /// ^ (\s*) ([#]+)\. \s+ (.*) $ ///
-LIST_MIX_REGEX   = /// ^ (\s*) ([#*]+)\. \s+ (.*) $ ///
+LIST_OL_REGEX   = /// ^ (\s*) ([#]+) \s* (.*) $ ///
+LIST_MIX_REGEX   = /// ^ (\s*) ([#*]+) \s* (.*) $ ///
 
 INDENT_TEXT_REGEX = /// ^ (\s*) ([:]+)\. \s+ (.*) $ ///
 
