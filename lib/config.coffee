@@ -105,10 +105,11 @@ class Configuration
 
     # filetypes markdown-writer commands apply
     grammars: [
-      'source.gfm'
-      'source.litcoffee'
-      'text.plain'
-      'text.plain.null-grammar'
+      # 'source.gfm'
+      # 'source.litcoffee'
+      # 'text.plain'
+      # 'text.plain.null-grammar'
+      'text.html.mediawiki'
     ]
 
   @engines:

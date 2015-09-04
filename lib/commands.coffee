@@ -54,13 +54,13 @@ class Commands
 
   _findLineValue: (line) ->
     if matches = LIST_UL_REGEX.exec(line)
-      nextLine = "#{matches[1]}#{matches[2]} "
+      nextLine = "#{matches[1]}#{matches[2]}"
     else if matches = LIST_OL_REGEX.exec(line)
-      nextLine = "#{matches[1]}#{matches[2]} "
+      nextLine = "#{matches[1]}#{matches[2]}"
     else if matches = LIST_MIX_REGEX.exec(line)
-      nextLine = "#{matches[1]}#{matches[2]} "
+      nextLine = "#{matches[1]}#{matches[2]}"
     else if matches = INDENT_TEXT_REGEX.exec(line)
-      nextLine = "#{matches[1]}#{matches[2]} "
+      nextLine = "#{matches[1]}#{matches[2]}"
     else
       nextLine = ""
 
