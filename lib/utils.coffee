@@ -17,7 +17,7 @@ dasherize = (str) ->
   str.trim().toLowerCase().replace(/[^-\w\s]|_/g, "").replace(/\s+/g, "-")
 
 getPackagePath = (segments...) ->
-  segments.unshift(atom.packages.resolvePackagePath("markdown-writer"))
+  segments.unshift(atom.packages.resolvePackagePath("mediawiki-writer"))
   path.join.apply(null, segments)
 
 # ==================================================

@@ -11,7 +11,7 @@ class NewFileView extends View
   @fileNameConfig = "newFileFileName" # override
 
   @content: ->
-    @div class: "markdown-writer", =>
+    @div class: "mediawiki-writer", =>
       @label "Add New #{@fileType}", class: "icon icon-file-add"
       @div =>
         @label "Directory", class: "message"

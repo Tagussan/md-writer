@@ -12,7 +12,7 @@ lastInsertImageDir = null # remember last inserted image directory
 module.exports =
 class InsertImageView extends View
   @content: ->
-    @div class: "markdown-writer markdown-writer-dialog", =>
+    @div class: "mediawiki-writer mediawiki-writer-dialog", =>
       @label "Insert Image", class: "icon icon-device-camera"
       @div =>
         @label "Image Path (src)", class: "message"
@@ -32,8 +32,8 @@ class InsertImageView extends View
           @label "Alignment", class: "message"
           @subview "alignEditor", new TextEditorView(mini: true)
       @div outlet: "copyImagePanel", class: "hidden dialog-row", =>
-        @label for: "markdown-writer-copy-image-checkbox", =>
-          @input id: "markdown-writer-copy-image-checkbox",
+        @label for: "mediawiki-writer-copy-image-checkbox", =>
+          @input id: "mediawiki-writer-copy-image-checkbox",
             type:"checkbox", outlet: "copyImageCheckbox"
           @span "Copy Image to Site Image Directory", class: "side-label"
       @div class: "image-container", =>

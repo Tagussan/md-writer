@@ -5,7 +5,7 @@ utils = require "./utils"
 module.exports =
 class InsertTableView extends View
   @content: ->
-    @div class: "markdown-writer markdown-writer-dialog", =>
+    @div class: "mediawiki-writer mediawiki-writer-dialog", =>
       @label "Insert Table", class: "icon icon-diff-added"
       @div =>
         @label "Rows", class: "message"

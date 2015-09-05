@@ -75,33 +75,33 @@ module.exports =
 
     # new-posts
     ["draft", "post"].forEach (file) =>
-      workspaceCommands["markdown-writer:new-#{file}"] =
+      workspaceCommands["mediawiki-writer:new-#{file}"] =
         @createCommand("./new-#{file}-view", optOutGrammars: true)
 
     # publishing
-    workspaceCommands["markdown-writer:publish-draft"] =
+    workspaceCommands["mediawiki-writer:publish-draft"] =
       @createCommand("./publish-draft")
 
     # front-matter
     ["tags", "categories"].forEach (attr) =>
-      editorCommands["markdown-writer:manage-post-#{attr}"] =
+      editorCommands["mediawiki-writer:manage-post-#{attr}"] =
         @createCommand("./manage-post-#{attr}-view")
 
     # text
     ["code", "codeblock", "bold", "italic",
      "keystroke", "strikethrough"].forEach (style) =>
-      editorCommands["markdown-writer:toggle-#{style}-text"] =
+      editorCommands["mediawiki-writer:toggle-#{style}-text"] =
         @createCommand("./style-text", args: style)
 
     # line-wise
     ["h1", "h2", "h3", "h4", "h5", "ul", "ol",
      "task", "taskdone", "blockquote"].forEach (style) =>
-      editorCommands["markdown-writer:toggle-#{style}"] =
+      editorCommands["mediawiki-writer:toggle-#{style}"] =
         @createCommand("./style-line", args: style)
 
     # media
     ["link", "image", "table"].forEach (media) =>
-      editorCommands["markdown-writer:insert-#{media}"] =
+      editorCommands["mediawiki-writer:insert-#{media}"] =
         @createCommand("./insert-#{media}-view")
 
     # helpers
@@ -109,12 +109,12 @@ module.exports =
      "jump-to-previous-heading", "jump-to-next-heading",
      "jump-between-reference-definition", "jump-to-next-table-cell",
      "format-table"].forEach (command) =>
-      editorCommands["markdown-writer:#{command}"] =
+      editorCommands["mediawiki-writer:#{command}"] =
         @createHelper("./commands", command)
 
     # additional workspace helpers
     ["open-cheat-sheet", "create-default-keymaps"].forEach (command) =>
-      workspaceCommands["markdown-writer:#{command}"] =
+      workspaceCommands["mediawiki-writer:#{command}"] =
         @createHelper("./commands", command, optOutGrammars: true)
 
     @wsCommands = atom.commands.add "atom-workspace", workspaceCommands

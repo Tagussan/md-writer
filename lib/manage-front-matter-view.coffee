@@ -9,7 +9,7 @@ class ManageFrontMatterView extends View
   @fieldName: "fieldName" # override
 
   @content: ->
-    @div class: "markdown-writer markdown-writer-selection", =>
+    @div class: "mediawiki-writer mediawiki-writer-selection", =>
       @label @labelName, class: "icon icon-book"
       @p class: "error", outlet: "error"
       @subview "fieldEditor", new TextEditorView(mini: true)

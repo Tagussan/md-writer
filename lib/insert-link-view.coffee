@@ -10,7 +10,7 @@ posts = null # to cache posts
 module.exports =
 class InsertLinkView extends View
   @content: ->
-    @div class: "markdown-writer markdown-writer-dialog", =>
+    @div class: "mediawiki-writer mediawiki-writer-dialog", =>
       @label "Insert Link", class: "icon icon-globe"
       @div =>
         @label "Text to be displayed", class: "message"
@@ -20,14 +20,14 @@ class InsertLinkView extends View
         @label "Title", class: "message"
         @subview "titleEditor", new TextEditorView(mini: true)
       @div class: "dialog-row", =>
-        @label for: "markdown-writer-save-link-checkbox", =>
-          @input id: "markdown-writer-save-link-checkbox",
+        @label for: "mediawiki-writer-save-link-checkbox", =>
+          @input id: "mediawiki-writer-save-link-checkbox",
             type:"checkbox", outlet: "saveCheckbox"
           @span "Automatically link to this text next time", class: "side-label"
       @div outlet: "searchBox", =>
         @label "Search Posts", class: "icon icon-search"
         @subview "searchEditor", new TextEditorView(mini: true)
-        @ul class: "markdown-writer-list", outlet: "searchResult"
+        @ul class: "mediawiki-writer-list", outlet: "searchResult"
 
   initialize: ->
     @searchEditor.getModel().onDidChange =>

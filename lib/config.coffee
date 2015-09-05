@@ -3,7 +3,7 @@ CSON = require "season"
 fs = require "fs-plus"
 
 class Configuration
-  @prefix: "markdown-writer"
+  @prefix: "mediawiki-writer"
 
   @defaults:
     # static engine of your blog, see `@engines`
@@ -103,7 +103,7 @@ class Configuration
     # insert extra pipes at the beginning and the end of table rows
     tableExtraPipes: false
 
-    # filetypes markdown-writer commands apply
+    # filetypes mediawiki-writer commands apply
     grammars: [
       # 'source.gfm'
       # 'source.litcoffee'
